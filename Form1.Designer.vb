@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         ButtonFetchSchema = New Button()
         ButtonSubmit = New Button()
         FormIDTextBox = New TextBox()
@@ -81,6 +82,7 @@ Partial Class Form1
         Controls.Add(FormIDTextBox)
         Controls.Add(ButtonSubmit)
         Controls.Add(ButtonFetchSchema)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "Form1"
         Text = "Formely"
         ResumeLayout(False)
