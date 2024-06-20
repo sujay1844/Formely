@@ -22,15 +22,39 @@ Partial Class FormCreateForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        AddFieldButton = New Button()
+        FieldsPanel = New FlowLayoutPanel()
         SuspendLayout()
+        ' 
+        ' AddFieldButton
+        ' 
+        AddFieldButton.Location = New Point(237, 12)
+        AddFieldButton.Name = "AddFieldButton"
+        AddFieldButton.Size = New Size(75, 23)
+        AddFieldButton.TabIndex = 0
+        AddFieldButton.Text = "Add field"
+        AddFieldButton.UseVisualStyleBackColor = True
+        ' 
+        ' FieldsPanel
+        ' 
+        FieldsPanel.FlowDirection = FlowDirection.TopDown
+        FieldsPanel.Location = New Point(12, 41)
+        FieldsPanel.Name = "FieldsPanel"
+        FieldsPanel.Size = New Size(699, 497)
+        FieldsPanel.TabIndex = 1
         ' 
         ' FormCreateForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(502, 550)
+        ClientSize = New Size(723, 550)
+        Controls.Add(FieldsPanel)
+        Controls.Add(AddFieldButton)
         Name = "FormCreateForm"
         Text = "Form2"
         ResumeLayout(False)
     End Sub
+
+    Friend WithEvents AddFieldButton As Button
+    Friend WithEvents FieldsPanel As FlowLayoutPanel
 End Class

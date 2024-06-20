@@ -119,7 +119,3 @@ End Class
 Public Class Schema
     Public Property Elements As List(Of Element)
 End Class
-
-Public Class PostData
-    Public Property Elements As List(Of Element)
-End Class
