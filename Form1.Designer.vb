@@ -24,13 +24,14 @@ Partial Class Form1
     Private Sub InitializeComponent()
         ButtonFetchSchema = New Button()
         ButtonSubmit = New Button()
-        PanelDynamicControls = New FlowLayoutPanel()
         FormIDTextBox = New TextBox()
+        CreateFormButton = New Button()
+        FormPanel = New FlowLayoutPanel()
         SuspendLayout()
         ' 
         ' ButtonFetchSchema
         ' 
-        ButtonFetchSchema.Location = New Point(663, 20)
+        ButtonFetchSchema.Location = New Point(274, 13)
         ButtonFetchSchema.Name = "ButtonFetchSchema"
         ButtonFetchSchema.Size = New Size(75, 23)
         ButtonFetchSchema.TabIndex = 1
@@ -39,46 +40,56 @@ Partial Class Form1
         ' 
         ' ButtonSubmit
         ' 
-        ButtonSubmit.Location = New Point(361, 415)
+        ButtonSubmit.Location = New Point(215, 515)
         ButtonSubmit.Name = "ButtonSubmit"
         ButtonSubmit.Size = New Size(75, 23)
         ButtonSubmit.TabIndex = 2
         ButtonSubmit.Text = "Submit"
         ButtonSubmit.UseVisualStyleBackColor = True
         ' 
-        ' PanelDynamicControls
-        ' 
-        PanelDynamicControls.FlowDirection = FlowDirection.TopDown
-        PanelDynamicControls.Location = New Point(61, 77)
-        PanelDynamicControls.Name = "PanelDynamicControls"
-        PanelDynamicControls.Size = New Size(677, 332)
-        PanelDynamicControls.TabIndex = 3
-        ' 
         ' FormIDTextBox
         ' 
-        FormIDTextBox.Location = New Point(61, 20)
+        FormIDTextBox.Location = New Point(24, 13)
         FormIDTextBox.Name = "FormIDTextBox"
         FormIDTextBox.PlaceholderText = "Form ID"
-        FormIDTextBox.Size = New Size(596, 23)
+        FormIDTextBox.Size = New Size(244, 23)
         FormIDTextBox.TabIndex = 4
+        ' 
+        ' CreateFormButton
+        ' 
+        CreateFormButton.Location = New Point(355, 12)
+        CreateFormButton.Name = "CreateFormButton"
+        CreateFormButton.Size = New Size(111, 23)
+        CreateFormButton.TabIndex = 5
+        CreateFormButton.Text = "Create New"
+        CreateFormButton.UseVisualStyleBackColor = True
+        ' 
+        ' FormPanel
+        ' 
+        FormPanel.Location = New Point(24, 42)
+        FormPanel.Name = "FormPanel"
+        FormPanel.Size = New Size(442, 467)
+        FormPanel.TabIndex = 6
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(800, 450)
+        ClientSize = New Size(502, 550)
+        Controls.Add(FormPanel)
+        Controls.Add(CreateFormButton)
         Controls.Add(FormIDTextBox)
-        Controls.Add(PanelDynamicControls)
         Controls.Add(ButtonSubmit)
         Controls.Add(ButtonFetchSchema)
         Name = "Form1"
-        Text = "Form1"
+        Text = "Formely"
         ResumeLayout(False)
         PerformLayout()
     End Sub
     Friend WithEvents ButtonFetchSchema As Button
     Friend WithEvents ButtonSubmit As Button
-    Friend WithEvents PanelDynamicControls As FlowLayoutPanel
     Friend WithEvents FormIDTextBox As TextBox
+    Friend WithEvents CreateFormButton As Button
+    Friend WithEvents FormPanel As FlowLayoutPanel
 
 End Class

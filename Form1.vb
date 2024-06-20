@@ -36,19 +36,19 @@ Public Class Form1
 
     Private Sub CreateControls(schema As Schema)
         ' Clear any existing controls
-        PanelDynamicControls.Controls.Clear()
+        FormPanel.Controls.Clear()
 
         ' Loop through schema elements and create corresponding controls
         For Each element As Element In schema.Elements
             Dim label As New Label() With {.Text = element.Label, .AutoSize = True}
-            PanelDynamicControls.Controls.Add(label)
+            FormPanel.Controls.Add(label)
 
             If element.Type = "text" Then
                 Dim textBox As New TextBox() With {.Name = "TextBox_" & element.Label}
-                PanelDynamicControls.Controls.Add(textBox)
+                FormPanel.Controls.Add(textBox)
             ElseIf element.Type = "number" Then
                 Dim numericUpDown As New NumericUpDown() With {.Name = "NumericUpDown_" & element.Label}
-                PanelDynamicControls.Controls.Add(numericUpDown)
+                FormPanel.Controls.Add(numericUpDown)
             End If
         Next
     End Sub
@@ -58,7 +58,7 @@ Public Class Form1
         Dim data As New Dictionary(Of String, Object)
 
         ' Loop through controls and populate PostData
-        For Each control As Control In PanelDynamicControls.Controls
+        For Each control As Control In FormPanel.Controls
             If TypeOf control Is TextBox AndAlso control.Name.StartsWith("TextBox_") Then
                 Dim propertyName As String = control.Name.Replace("TextBox_", "")
                 Dim propertyValue As String = DirectCast(control, TextBox).Text
@@ -103,6 +103,11 @@ Public Class Form1
             End If
         End Using
     End Function
+
+    Private Sub CreateFormButton_Click(sender As Object, e As EventArgs) Handles CreateFormButton.Click
+        Dim createForm As New FormCreateForm()
+        createForm.Show()
+    End Sub
 
 End Class
 Public Class Element
