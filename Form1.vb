@@ -1,4 +1,5 @@
-﻿Imports System.Net.Http
+﻿Imports System.IO
+Imports System.Net.Http
 Imports System.Text
 Imports System.Threading.Tasks
 Imports Newtonsoft.Json
@@ -109,6 +110,37 @@ Public Class Form1
         createForm.Show()
     End Sub
 
+    Private Async Sub GetResponsesButton_Click(sender As Object, e As EventArgs) Handles GetResponsesButton.Click
+        Dim formID As String = FormIDTextBox.Text
+        ' Get the responses API endpoint
+        Dim responses As String = Await GetResponses(formID)
+        If responses IsNot Nothing Then
+            ' Show file dialog to save responses
+            SaveToFile(responses)
+        End If
+    End Sub
+
+    Private Shared Sub SaveToFile(responses As String)
+        Dim saveFileDialog As New SaveFileDialog()
+        saveFileDialog.Filter = "JSON files (*.json)|*.json"
+        If saveFileDialog.ShowDialog() = DialogResult.OK Then
+            File.WriteAllText(saveFileDialog.FileName, responses)
+        End If
+    End Sub
+
+    Private Shared Async Function GetResponses(formID As String) As Task(Of String)
+        Dim url As String = "https://formely-backend-krgbirukmq-el.a.run.app/response/" & formID
+        Using client As New HttpClient()
+            Dim response As HttpResponseMessage = Await client.GetAsync(url)
+            If response.IsSuccessStatusCode Then
+                Dim jsonResponse As String = Await response.Content.ReadAsStringAsync()
+                Return jsonResponse
+            Else
+                MessageBox.Show("Error fetching responses: " & response.StatusCode.ToString())
+                Return Nothing
+            End If
+        End Using
+    End Function
 End Class
 Public Class Element
     Public Property Label As String

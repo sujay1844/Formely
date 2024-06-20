@@ -28,6 +28,7 @@ Partial Class Form1
         FormIDTextBox = New TextBox()
         CreateFormButton = New Button()
         FormPanel = New FlowLayoutPanel()
+        GetResponsesButton = New Button()
         SuspendLayout()
         ' 
         ' ButtonFetchSchema
@@ -41,7 +42,7 @@ Partial Class Form1
         ' 
         ' ButtonSubmit
         ' 
-        ButtonSubmit.Location = New Point(215, 515)
+        ButtonSubmit.Location = New Point(206, 515)
         ButtonSubmit.Name = "ButtonSubmit"
         ButtonSubmit.Size = New Size(75, 23)
         ButtonSubmit.TabIndex = 2
@@ -58,7 +59,7 @@ Partial Class Form1
         ' 
         ' CreateFormButton
         ' 
-        CreateFormButton.Location = New Point(355, 12)
+        CreateFormButton.Location = New Point(24, 41)
         CreateFormButton.Name = "CreateFormButton"
         CreateFormButton.Size = New Size(111, 23)
         CreateFormButton.TabIndex = 5
@@ -67,16 +68,26 @@ Partial Class Form1
         ' 
         ' FormPanel
         ' 
-        FormPanel.Location = New Point(24, 42)
+        FormPanel.Location = New Point(24, 70)
         FormPanel.Name = "FormPanel"
-        FormPanel.Size = New Size(442, 467)
+        FormPanel.Size = New Size(442, 439)
         FormPanel.TabIndex = 6
+        ' 
+        ' GetResponsesButton
+        ' 
+        GetResponsesButton.Location = New Point(355, 13)
+        GetResponsesButton.Name = "GetResponsesButton"
+        GetResponsesButton.Size = New Size(111, 23)
+        GetResponsesButton.TabIndex = 0
+        GetResponsesButton.Text = "Get Responses"
+        GetResponsesButton.UseVisualStyleBackColor = True
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(502, 550)
+        Controls.Add(GetResponsesButton)
         Controls.Add(FormPanel)
         Controls.Add(CreateFormButton)
         Controls.Add(FormIDTextBox)
@@ -93,5 +104,6 @@ Partial Class Form1
     Friend WithEvents FormIDTextBox As TextBox
     Friend WithEvents CreateFormButton As Button
     Friend WithEvents FormPanel As FlowLayoutPanel
+    Friend WithEvents GetResponsesButton As Button
 
 End Class
