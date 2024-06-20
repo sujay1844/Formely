@@ -24,6 +24,7 @@ Partial Class FormCreateForm
     Private Sub InitializeComponent()
         AddFieldButton = New Button()
         FieldsPanel = New FlowLayoutPanel()
+        CreateFormButton = New Button()
         SuspendLayout()
         ' 
         ' AddFieldButton
@@ -43,11 +44,21 @@ Partial Class FormCreateForm
         FieldsPanel.Size = New Size(699, 497)
         FieldsPanel.TabIndex = 1
         ' 
+        ' CreateFormButton
+        ' 
+        CreateFormButton.Location = New Point(421, 12)
+        CreateFormButton.Name = "CreateFormButton"
+        CreateFormButton.Size = New Size(105, 23)
+        CreateFormButton.TabIndex = 2
+        CreateFormButton.Text = "Create Form"
+        CreateFormButton.UseVisualStyleBackColor = True
+        ' 
         ' FormCreateForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(723, 550)
+        Controls.Add(CreateFormButton)
         Controls.Add(FieldsPanel)
         Controls.Add(AddFieldButton)
         Name = "FormCreateForm"
@@ -57,4 +68,5 @@ Partial Class FormCreateForm
 
     Friend WithEvents AddFieldButton As Button
     Friend WithEvents FieldsPanel As FlowLayoutPanel
+    Friend WithEvents CreateFormButton As Button
 End Class
