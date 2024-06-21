@@ -23,16 +23,19 @@ Public Class ViewSubmissionsForm
         ElseIf keyData = (Keys.Control Or Keys.N) Then
             NextButton_Click(NextButton, EventArgs.Empty)
             Return True
+        ElseIf keyData = (Keys.Control Or Keys.E) Then
+            EditButton_Click(EditButton, EventArgs.Empty)
+            Return True
         End If
         Return MyBase.ProcessCmdKey(msg, keyData)
     End Function
-    Private Async Sub ViewSubmissionsForm_Shown(sender As Object, e As EventArgs)
+    Private Async Function ViewSubmissionsForm_Shown(sender As Object, e As EventArgs) As Task
         ' Await the async method and initialize SubmissionIDs
         SubmissionIDs = Await GetSubmissionIDs()
         CurrentIndex = 0
         ' Show the first form entry
         Await ShowFormEntry(CurrentIndex)
-    End Sub
+    End Function
 
     Private Async Function GetSubmissionIDs() As Task(Of List(Of String))
         Dim url As String = "https://formely-backend-krgbirukmq-el.a.run.app/read"
@@ -86,6 +89,20 @@ Public Class ViewSubmissionsForm
         If CurrentIndex < 0 Then
             CurrentIndex = SubmissionIDs.Count - 1
         End If
+        Await ShowFormEntry(CurrentIndex)
+    End Sub
+
+    Private Async Sub EditButton_Click(sender As Object, e As EventArgs) Handles EditButton.Click
+        Dim entry As FormEntry = New FormEntry With {
+            .Name = NameTextBox.Text,
+            .Email = EmailTextBox.Text,
+            .Phone = PhoneTextBox.Text,
+            .GithubLink = GithubLinkTextBox.Text,
+            .StopwatchTime = StopwatchTimeTextBox.Text
+        }
+        Dim editForm As EditResponseForm = New EditResponseForm(entry, SubmissionIDs(CurrentIndex))
+        editForm.Show()
+        ' Re-render the current form entry after editing
         Await ShowFormEntry(CurrentIndex)
     End Sub
 End Class
