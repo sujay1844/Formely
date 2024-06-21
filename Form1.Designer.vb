@@ -23,87 +23,56 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        ButtonFetchSchema = New Button()
-        ButtonSubmit = New Button()
-        FormIDTextBox = New TextBox()
-        CreateFormButton = New Button()
-        FormPanel = New FlowLayoutPanel()
-        GetResponsesButton = New Button()
+        Label1 = New Label()
+        ViewSubmissionsButton = New Button()
+        Button2 = New Button()
         SuspendLayout()
         ' 
-        ' ButtonFetchSchema
+        ' Label1
         ' 
-        ButtonFetchSchema.Location = New Point(274, 13)
-        ButtonFetchSchema.Name = "ButtonFetchSchema"
-        ButtonFetchSchema.Size = New Size(75, 23)
-        ButtonFetchSchema.TabIndex = 1
-        ButtonFetchSchema.Text = "Fetch Schema"
-        ButtonFetchSchema.UseVisualStyleBackColor = True
+        Label1.AutoSize = True
+        Label1.Font = New Font("Segoe UI", 16F)
+        Label1.Location = New Point(38, 9)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(213, 30)
+        Label1.TabIndex = 0
+        Label1.Text = "Formely: Slidely Task"
         ' 
-        ' ButtonSubmit
+        ' ViewSubmissionsButton
         ' 
-        ButtonSubmit.Location = New Point(206, 515)
-        ButtonSubmit.Name = "ButtonSubmit"
-        ButtonSubmit.Size = New Size(75, 23)
-        ButtonSubmit.TabIndex = 2
-        ButtonSubmit.Text = "Submit"
-        ButtonSubmit.UseVisualStyleBackColor = True
+        ViewSubmissionsButton.Location = New Point(38, 60)
+        ViewSubmissionsButton.Name = "ViewSubmissionsButton"
+        ViewSubmissionsButton.Size = New Size(213, 23)
+        ViewSubmissionsButton.TabIndex = 1
+        ViewSubmissionsButton.Text = "View Submissions"
+        ViewSubmissionsButton.UseVisualStyleBackColor = True
         ' 
-        ' FormIDTextBox
+        ' Button2
         ' 
-        FormIDTextBox.Location = New Point(24, 13)
-        FormIDTextBox.Name = "FormIDTextBox"
-        FormIDTextBox.PlaceholderText = "Form ID"
-        FormIDTextBox.Size = New Size(244, 23)
-        FormIDTextBox.TabIndex = 4
-        ' 
-        ' CreateFormButton
-        ' 
-        CreateFormButton.Location = New Point(24, 41)
-        CreateFormButton.Name = "CreateFormButton"
-        CreateFormButton.Size = New Size(111, 23)
-        CreateFormButton.TabIndex = 5
-        CreateFormButton.Text = "Create New"
-        CreateFormButton.UseVisualStyleBackColor = True
-        ' 
-        ' FormPanel
-        ' 
-        FormPanel.Location = New Point(24, 70)
-        FormPanel.Name = "FormPanel"
-        FormPanel.Size = New Size(442, 439)
-        FormPanel.TabIndex = 6
-        ' 
-        ' GetResponsesButton
-        ' 
-        GetResponsesButton.Location = New Point(355, 13)
-        GetResponsesButton.Name = "GetResponsesButton"
-        GetResponsesButton.Size = New Size(111, 23)
-        GetResponsesButton.TabIndex = 0
-        GetResponsesButton.Text = "Get Responses"
-        GetResponsesButton.UseVisualStyleBackColor = True
+        Button2.Location = New Point(38, 103)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(213, 23)
+        Button2.TabIndex = 2
+        Button2.Text = "Create New Submission"
+        Button2.UseVisualStyleBackColor = True
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(502, 550)
-        Controls.Add(GetResponsesButton)
-        Controls.Add(FormPanel)
-        Controls.Add(CreateFormButton)
-        Controls.Add(FormIDTextBox)
-        Controls.Add(ButtonSubmit)
-        Controls.Add(ButtonFetchSchema)
+        ClientSize = New Size(295, 160)
+        Controls.Add(Button2)
+        Controls.Add(ViewSubmissionsButton)
+        Controls.Add(Label1)
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "Form1"
         Text = "Formely"
         ResumeLayout(False)
         PerformLayout()
     End Sub
-    Friend WithEvents ButtonFetchSchema As Button
-    Friend WithEvents ButtonSubmit As Button
-    Friend WithEvents FormIDTextBox As TextBox
-    Friend WithEvents CreateFormButton As Button
-    Friend WithEvents FormPanel As FlowLayoutPanel
-    Friend WithEvents GetResponsesButton As Button
+
+    Friend WithEvents Label1 As Label
+    Friend WithEvents ViewSubmissionsButton As Button
+    Friend WithEvents Button2 As Button
 
 End Class
