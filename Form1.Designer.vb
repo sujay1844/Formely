@@ -25,11 +25,12 @@ Partial Class Form1
         ButtonFetchSchema = New Button()
         ButtonSubmit = New Button()
         PanelDynamicControls = New FlowLayoutPanel()
+        FormIDTextBox = New TextBox()
         SuspendLayout()
         ' 
         ' ButtonFetchSchema
         ' 
-        ButtonFetchSchema.Location = New Point(107, 18)
+        ButtonFetchSchema.Location = New Point(663, 20)
         ButtonFetchSchema.Name = "ButtonFetchSchema"
         ButtonFetchSchema.Size = New Size(75, 23)
         ButtonFetchSchema.TabIndex = 1
@@ -38,7 +39,7 @@ Partial Class Form1
         ' 
         ' ButtonSubmit
         ' 
-        ButtonSubmit.Location = New Point(425, 18)
+        ButtonSubmit.Location = New Point(361, 415)
         ButtonSubmit.Name = "ButtonSubmit"
         ButtonSubmit.Size = New Size(75, 23)
         ButtonSubmit.TabIndex = 2
@@ -47,25 +48,37 @@ Partial Class Form1
         ' 
         ' PanelDynamicControls
         ' 
+        PanelDynamicControls.FlowDirection = FlowDirection.TopDown
         PanelDynamicControls.Location = New Point(61, 77)
         PanelDynamicControls.Name = "PanelDynamicControls"
         PanelDynamicControls.Size = New Size(677, 332)
         PanelDynamicControls.TabIndex = 3
+        ' 
+        ' FormIDTextBox
+        ' 
+        FormIDTextBox.Location = New Point(61, 20)
+        FormIDTextBox.Name = "FormIDTextBox"
+        FormIDTextBox.PlaceholderText = "Form ID"
+        FormIDTextBox.Size = New Size(596, 23)
+        FormIDTextBox.TabIndex = 4
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
+        Controls.Add(FormIDTextBox)
         Controls.Add(PanelDynamicControls)
         Controls.Add(ButtonSubmit)
         Controls.Add(ButtonFetchSchema)
         Name = "Form1"
         Text = "Form1"
         ResumeLayout(False)
+        PerformLayout()
     End Sub
     Friend WithEvents ButtonFetchSchema As Button
     Friend WithEvents ButtonSubmit As Button
     Friend WithEvents PanelDynamicControls As FlowLayoutPanel
+    Friend WithEvents FormIDTextBox As TextBox
 
 End Class

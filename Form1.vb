@@ -7,10 +7,10 @@ Imports Newtonsoft.Json.Serialization
 
 
 Public Class Form1
-
     Private Async Sub ButtonFetchSchema_Click(sender As Object, e As EventArgs) Handles ButtonFetchSchema.Click
+        Dim FormID As String = FormIDTextBox.Text
         ' Define the schema API endpoint
-        Dim schemaApiUrl As String = "https://formely-backend-krgbirukmq-el.a.run.app/form/66730835a18b80c48990df49" ' Replace with your schema API endpoint
+        Dim schemaApiUrl As String = "https://formely-backend-krgbirukmq-el.a.run.app/form/" & FormID ' Replace with your schema API endpoint
 
         ' Fetch the schema
         Dim schema As Schema = Await FetchSchemaAsync(schemaApiUrl)
@@ -54,31 +54,28 @@ Public Class Form1
     End Sub
 
     Private Async Sub ButtonSubmit_Click(sender As Object, e As EventArgs) Handles ButtonSubmit.Click
-        ' Collect data from dynamically created controls and create the PostData object
-        Dim elements As New List(Of Element)
+        ' Create a new instance of PostData
+        Dim data As New Dictionary(Of String, Object)
 
+        ' Loop through controls and populate PostData
         For Each control As Control In PanelDynamicControls.Controls
-            If TypeOf control Is TextBox Then
-                elements.Add(New Element With {.Label = control.Name.Replace("TextBox_", ""), .Type = "text", .Value = DirectCast(control, TextBox).Text})
-            ElseIf TypeOf control Is NumericUpDown Then
-                elements.Add(New Element With {.Label = control.Name.Replace("NumericUpDown_", ""), .Type = "number", .Value = DirectCast(control, NumericUpDown).Value})
+            If TypeOf control Is TextBox AndAlso control.Name.StartsWith("TextBox_") Then
+                Dim propertyName As String = control.Name.Replace("TextBox_", "")
+                Dim propertyValue As String = DirectCast(control, TextBox).Text
+                data(propertyName) = propertyValue
+            ElseIf TypeOf control Is NumericUpDown AndAlso control.Name.StartsWith("NumericUpDown_") Then
+                Dim propertyName As String = control.Name.Replace("NumericUpDown_", "")
+                Dim propertyValue As Integer = CInt(DirectCast(control, NumericUpDown).Value)
+                data(propertyName) = propertyValue
             End If
         Next
 
-        Dim postData As New PostData With {
-            .Elements = elements
-        }
-
-        Dim settings As New JsonSerializerSettings()
-        settings.ContractResolver = New DefaultContractResolver() With {
-            .NamingStrategy = New SnakeCaseNamingStrategy()
-        }
-
         ' Serialize the data to JSON
-        Dim jsonPostData As String = JsonConvert.SerializeObject(postData, settings)
+        Dim jsonPostData As String = JsonConvert.SerializeObject(data)
+        Dim FormID As String = FormIDTextBox.Text
 
         ' Define the API endpoint
-        Dim apiUrl As String = "https://formely-backend-krgbirukmq-el.a.run.app/response/66730835a18b80c48990df49" ' Replace with your API endpoint
+        Dim apiUrl As String = "https://formely-backend-krgbirukmq-el.a.run.app/response/" & FormID ' Replace with your API endpoint
 
         ' Send the data to the API
         Await SendDataToApiAsync(apiUrl, jsonPostData)
