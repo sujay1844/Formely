@@ -25,7 +25,7 @@ Partial Class Form1
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Label1 = New Label()
         ViewSubmissionsButton = New Button()
-        Button2 = New Button()
+        CreateNewResponseButton = New Button()
         SuspendLayout()
         ' 
         ' Label1
@@ -44,24 +44,24 @@ Partial Class Form1
         ViewSubmissionsButton.Name = "ViewSubmissionsButton"
         ViewSubmissionsButton.Size = New Size(213, 23)
         ViewSubmissionsButton.TabIndex = 1
-        ViewSubmissionsButton.Text = "View Submissions"
+        ViewSubmissionsButton.Text = "View Submissions (Ctrl+V)"
         ViewSubmissionsButton.UseVisualStyleBackColor = True
         ' 
-        ' Button2
+        ' CreateNewResponseButton
         ' 
-        Button2.Location = New Point(38, 103)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(213, 23)
-        Button2.TabIndex = 2
-        Button2.Text = "Create New Submission"
-        Button2.UseVisualStyleBackColor = True
+        CreateNewResponseButton.Location = New Point(38, 103)
+        CreateNewResponseButton.Name = "CreateNewResponseButton"
+        CreateNewResponseButton.Size = New Size(213, 23)
+        CreateNewResponseButton.TabIndex = 2
+        CreateNewResponseButton.Text = "Create New Submission (Ctrl+N)"
+        CreateNewResponseButton.UseVisualStyleBackColor = True
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(295, 160)
-        Controls.Add(Button2)
+        Controls.Add(CreateNewResponseButton)
         Controls.Add(ViewSubmissionsButton)
         Controls.Add(Label1)
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
@@ -73,6 +73,6 @@ Partial Class Form1
 
     Friend WithEvents Label1 As Label
     Friend WithEvents ViewSubmissionsButton As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents CreateNewResponseButton As Button
 
 End Class

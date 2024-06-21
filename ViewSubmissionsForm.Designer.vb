@@ -128,7 +128,7 @@ Partial Class ViewSubmissionsForm
         PreviousButton.Name = "PreviousButton"
         PreviousButton.Size = New Size(113, 23)
         PreviousButton.TabIndex = 23
-        PreviousButton.Text = "Previous"
+        PreviousButton.Text = "Previous (Ctrl+P)"
         PreviousButton.UseVisualStyleBackColor = True
         ' 
         ' NextButton
@@ -137,7 +137,7 @@ Partial Class ViewSubmissionsForm
         NextButton.Name = "NextButton"
         NextButton.Size = New Size(112, 23)
         NextButton.TabIndex = 24
-        NextButton.Text = "Next"
+        NextButton.Text = "Next (Ctrl+N)"
         NextButton.UseVisualStyleBackColor = True
         ' 
         ' ViewSubmissionsForm

@@ -16,6 +16,16 @@ Public Class CreateNewResponseForm
         timer.Interval = 100
         AddHandler timer.Tick, AddressOf Timer_Tick
     End Sub
+    Protected Overrides Function ProcessCmdKey(ByRef msg As Message, keyData As Keys) As Boolean
+        If keyData = (Keys.Control Or Keys.T) Then
+            StopwatchToggleButton_Click(StopwatchToggleButton, EventArgs.Empty)
+            Return True
+        ElseIf keyData = (Keys.Control Or Keys.N) Then
+            SubmitButton_Click(SubmitButton, EventArgs.Empty)
+            Return True
+        End If
+        Return MyBase.ProcessCmdKey(msg, keyData)
+    End Function
     Private Sub Timer_Tick(sender As Object, e As EventArgs)
         StopwatchTimeTextBox.Text = stopwatch.Elapsed.ToString("hh\:mm\:ss\.ff")
     End Sub

@@ -47,14 +47,14 @@ Partial Class CreateNewResponseForm
         ' 
         ' NameTextBox
         ' 
-        NameTextBox.Location = New Point(111, 34)
+        NameTextBox.Location = New Point(218, 34)
         NameTextBox.Name = "NameTextBox"
         NameTextBox.Size = New Size(156, 23)
         NameTextBox.TabIndex = 1
         ' 
         ' EmailTextBox
         ' 
-        EmailTextBox.Location = New Point(111, 63)
+        EmailTextBox.Location = New Point(218, 63)
         EmailTextBox.Name = "EmailTextBox"
         EmailTextBox.Size = New Size(156, 23)
         EmailTextBox.TabIndex = 3
@@ -70,7 +70,7 @@ Partial Class CreateNewResponseForm
         ' 
         ' PhoneTextBox
         ' 
-        PhoneTextBox.Location = New Point(111, 92)
+        PhoneTextBox.Location = New Point(218, 92)
         PhoneTextBox.Name = "PhoneTextBox"
         PhoneTextBox.Size = New Size(156, 23)
         PhoneTextBox.TabIndex = 5
@@ -86,7 +86,7 @@ Partial Class CreateNewResponseForm
         ' 
         ' GithubLinkTextBox
         ' 
-        GithubLinkTextBox.Location = New Point(111, 121)
+        GithubLinkTextBox.Location = New Point(218, 121)
         GithubLinkTextBox.Name = "GithubLinkTextBox"
         GithubLinkTextBox.Size = New Size(156, 23)
         GithubLinkTextBox.TabIndex = 7
@@ -103,34 +103,34 @@ Partial Class CreateNewResponseForm
         ' StopwatchTimeTextBox
         ' 
         StopwatchTimeTextBox.Enabled = False
-        StopwatchTimeTextBox.Location = New Point(162, 150)
+        StopwatchTimeTextBox.Location = New Point(218, 150)
         StopwatchTimeTextBox.Name = "StopwatchTimeTextBox"
-        StopwatchTimeTextBox.Size = New Size(105, 23)
+        StopwatchTimeTextBox.Size = New Size(156, 23)
         StopwatchTimeTextBox.TabIndex = 9
         ' 
         ' SubmitButton
         ' 
-        SubmitButton.Location = New Point(111, 190)
+        SubmitButton.Location = New Point(150, 192)
         SubmitButton.Name = "SubmitButton"
-        SubmitButton.Size = New Size(75, 23)
+        SubmitButton.Size = New Size(117, 23)
         SubmitButton.TabIndex = 10
-        SubmitButton.Text = "Submit"
+        SubmitButton.Text = "Submit (Ctrl+S)"
         SubmitButton.UseVisualStyleBackColor = True
         ' 
         ' StopwatchToggleButton
         ' 
         StopwatchToggleButton.Location = New Point(36, 150)
         StopwatchToggleButton.Name = "StopwatchToggleButton"
-        StopwatchToggleButton.Size = New Size(120, 23)
+        StopwatchToggleButton.Size = New Size(176, 23)
         StopwatchToggleButton.TabIndex = 11
-        StopwatchToggleButton.Text = "Toggle Stopwatch"
+        StopwatchToggleButton.Text = "Toggle Stopwatch (Ctrl+T)"
         StopwatchToggleButton.UseVisualStyleBackColor = True
         ' 
         ' CreateNewResponseForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(317, 252)
+        ClientSize = New Size(424, 252)
         Controls.Add(StopwatchToggleButton)
         Controls.Add(SubmitButton)
         Controls.Add(StopwatchTimeTextBox)

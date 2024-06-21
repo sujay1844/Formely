@@ -16,7 +16,16 @@ Public Class ViewSubmissionsForm
         ' Add handler for the Shown event
         AddHandler Me.Shown, AddressOf ViewSubmissionsForm_Shown
     End Sub
-
+    Protected Overrides Function ProcessCmdKey(ByRef msg As Message, keyData As Keys) As Boolean
+        If keyData = (Keys.Control Or Keys.P) Then
+            PreviousButton_Click(PreviousButton, EventArgs.Empty)
+            Return True
+        ElseIf keyData = (Keys.Control Or Keys.N) Then
+            NextButton_Click(NextButton, EventArgs.Empty)
+            Return True
+        End If
+        Return MyBase.ProcessCmdKey(msg, keyData)
+    End Function
     Private Async Sub ViewSubmissionsForm_Shown(sender As Object, e As EventArgs)
         ' Await the async method and initialize SubmissionIDs
         SubmissionIDs = Await GetSubmissionIDs()
