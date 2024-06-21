@@ -110,7 +110,7 @@ Partial Class CreateNewResponseForm
         ' 
         ' SubmitButton
         ' 
-        SubmitButton.Location = New Point(122, 195)
+        SubmitButton.Location = New Point(111, 190)
         SubmitButton.Name = "SubmitButton"
         SubmitButton.Size = New Size(75, 23)
         SubmitButton.TabIndex = 10
