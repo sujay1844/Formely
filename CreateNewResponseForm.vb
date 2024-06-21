@@ -2,6 +2,34 @@
 Imports System.Text
 
 Public Class CreateNewResponseForm
+    Private stopwatch As Stopwatch
+    Private timer As Timer
+    Private stopwatchIsRunning As Boolean
+    Public Sub New()
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+        stopwatch = New Stopwatch()
+        timer = New Timer()
+        timer.Interval = 100
+        AddHandler timer.Tick, AddressOf Timer_Tick
+    End Sub
+    Private Sub Timer_Tick(sender As Object, e As EventArgs)
+        StopwatchTimeTextBox.Text = stopwatch.Elapsed.ToString("hh\:mm\:ss\.ff")
+    End Sub
+    Private Sub StopwatchToggleButton_Click(sender As Object, e As EventArgs) Handles StopwatchToggleButton.Click
+        If Not stopwatchIsRunning Then
+            stopwatch.Start()
+            timer.Start()
+            stopwatchIsRunning = True
+        Else
+            stopwatch.Stop()
+            timer.Stop()
+            stopwatchIsRunning = False
+        End If
+    End Sub
     Public Async Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
         Dim entry As New FormEntry With {
                 .Name = NameTextBox.Text,

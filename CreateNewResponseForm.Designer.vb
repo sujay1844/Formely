@@ -32,8 +32,8 @@ Partial Class CreateNewResponseForm
         GithubLinkTextBox = New TextBox()
         GithubLinkLabel = New Label()
         StopwatchTimeTextBox = New TextBox()
-        StopwatchLabel = New Label()
         SubmitButton = New Button()
+        StopwatchToggleButton = New Button()
         SuspendLayout()
         ' 
         ' NameLabel
@@ -103,19 +103,10 @@ Partial Class CreateNewResponseForm
         ' StopwatchTimeTextBox
         ' 
         StopwatchTimeTextBox.Enabled = False
-        StopwatchTimeTextBox.Location = New Point(111, 150)
+        StopwatchTimeTextBox.Location = New Point(162, 150)
         StopwatchTimeTextBox.Name = "StopwatchTimeTextBox"
-        StopwatchTimeTextBox.Size = New Size(156, 23)
+        StopwatchTimeTextBox.Size = New Size(105, 23)
         StopwatchTimeTextBox.TabIndex = 9
-        ' 
-        ' StopwatchLabel
-        ' 
-        StopwatchLabel.AutoSize = True
-        StopwatchLabel.Location = New Point(39, 153)
-        StopwatchLabel.Name = "StopwatchLabel"
-        StopwatchLabel.Size = New Size(63, 15)
-        StopwatchLabel.TabIndex = 8
-        StopwatchLabel.Text = "Stopwatch"
         ' 
         ' SubmitButton
         ' 
@@ -126,14 +117,23 @@ Partial Class CreateNewResponseForm
         SubmitButton.Text = "Submit"
         SubmitButton.UseVisualStyleBackColor = True
         ' 
+        ' StopwatchToggleButton
+        ' 
+        StopwatchToggleButton.Location = New Point(36, 150)
+        StopwatchToggleButton.Name = "StopwatchToggleButton"
+        StopwatchToggleButton.Size = New Size(120, 23)
+        StopwatchToggleButton.TabIndex = 11
+        StopwatchToggleButton.Text = "Toggle Stopwatch"
+        StopwatchToggleButton.UseVisualStyleBackColor = True
+        ' 
         ' CreateNewResponseForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(317, 252)
+        Controls.Add(StopwatchToggleButton)
         Controls.Add(SubmitButton)
         Controls.Add(StopwatchTimeTextBox)
-        Controls.Add(StopwatchLabel)
         Controls.Add(GithubLinkTextBox)
         Controls.Add(GithubLinkLabel)
         Controls.Add(PhoneTextBox)
@@ -158,6 +158,6 @@ Partial Class CreateNewResponseForm
     Friend WithEvents GithubLinkTextBox As TextBox
     Friend WithEvents GithubLinkLabel As Label
     Friend WithEvents StopwatchTimeTextBox As TextBox
-    Friend WithEvents StopwatchLabel As Label
     Friend WithEvents SubmitButton As Button
+    Friend WithEvents StopwatchToggleButton As Button
 End Class
