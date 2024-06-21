@@ -26,16 +26,19 @@ Public Class ViewSubmissionsForm
         ElseIf keyData = (Keys.Control Or Keys.E) Then
             EditButton_Click(EditButton, EventArgs.Empty)
             Return True
+        ElseIf keyData = (Keys.Control Or Keys.D) Then
+            DeleteButton_Click(DeleteButton, EventArgs.Empty)
+            Return True
         End If
         Return MyBase.ProcessCmdKey(msg, keyData)
     End Function
-    Private Async Function ViewSubmissionsForm_Shown(sender As Object, e As EventArgs) As Task
+    Private Async Sub ViewSubmissionsForm_Shown(sender As Object, e As EventArgs)
         ' Await the async method and initialize SubmissionIDs
         SubmissionIDs = Await GetSubmissionIDs()
         CurrentIndex = 0
         ' Show the first form entry
         Await ShowFormEntry(CurrentIndex)
-    End Function
+    End Sub
 
     Private Async Function GetSubmissionIDs() As Task(Of List(Of String))
         Dim url As String = "https://formely-backend-krgbirukmq-el.a.run.app/read"
@@ -79,7 +82,9 @@ Public Class ViewSubmissionsForm
     Private Async Sub NextButton_Click(sender As Object, e As EventArgs) Handles NextButton.Click
         CurrentIndex += 1
         If CurrentIndex >= SubmissionIDs.Count Then
-            CurrentIndex = 0
+            MessageBox.Show("No more submissions!")
+            CurrentIndex -= 1
+            Return
         End If
         Await ShowFormEntry(CurrentIndex)
     End Sub
@@ -87,7 +92,9 @@ Public Class ViewSubmissionsForm
     Private Async Sub PreviousButton_Click(sender As Object, e As EventArgs) Handles PreviousButton.Click
         CurrentIndex -= 1
         If CurrentIndex < 0 Then
-            CurrentIndex = SubmissionIDs.Count - 1
+            MessageBox.Show("No more submissions!")
+            CurrentIndex += 1
+            Return
         End If
         Await ShowFormEntry(CurrentIndex)
     End Sub
@@ -104,5 +111,23 @@ Public Class ViewSubmissionsForm
         editForm.Show()
         ' Re-render the current form entry after editing
         Await ShowFormEntry(CurrentIndex)
+    End Sub
+
+    Private Async Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
+        Dim url As String = "https://formely-backend-krgbirukmq-el.a.run.app/delete/" & SubmissionIDs(CurrentIndex)
+        Using client As New HttpClient()
+            Dim response As HttpResponseMessage = Await client.DeleteAsync(url)
+
+            If response.IsSuccessStatusCode Then
+                MessageBox.Show("Deletion successful!")
+                SubmissionIDs.RemoveAt(CurrentIndex)
+                If CurrentIndex >= SubmissionIDs.Count Then
+                    CurrentIndex = 0
+                End If
+                Await ShowFormEntry(CurrentIndex)
+            Else
+                MessageBox.Show("Deletion failed!")
+            End If
+        End Using
     End Sub
 End Class
